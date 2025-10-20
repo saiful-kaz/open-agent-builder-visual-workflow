@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "lsof -ti:3000,3001 | xargs kill -9 2>/dev/null || true && next dev",
-    "dev:all": "concurrently \"npx convex dev\" \"npm run dev\"",
+    "dev": "node api.js && lsof -ti:3000,3001 | xargs kill -9 2>/dev/null || true && next dev",
+    "dev:all": "node api.js && concurrently \"npx convex dev\" \"npm run dev\"",
     "build": "next build",
-    "start": "next start",
+    "start": "node api.js && next start",
     "lint": "next lint",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
